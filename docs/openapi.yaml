@@ -38,7 +38,7 @@ info:
      https://www.postman.com/downloads/
 
 
-  version: 3.0.0
+  version: 3.1.0
   x-logo:
     url: ./EAPI-logo.png
     backgroundColor: '#FAFAFA'
@@ -4281,7 +4281,7 @@ paths:
 
         
         
-         If the request contains the `slots` field, use the `slots` field; if `slots` is absent but `slots_pattern` is present, use `slots_pattern`; if neither is provided, return an error.
+         If the request contains the `ports` field, use the `ports` field; if `ports` is absent but `ports_pattern` is present, use `ports_pattern`; if neither is provided, return an error.
       tags: 
         - Device Action Commands
       parameters:
@@ -4308,16 +4308,13 @@ paths:
                   ports:
                     type: array
                     description: >-
-                      Array of port numbers and slot numbers
+                      Array of port numbers
                     items:
                       type: object
                       properties:
                         port:
                           type: number
                           description: Port number
-                        slot:
-                          type: number
-                          description: Slot number
                   ports_pattern:
                     type: string
                     description: >- 
@@ -4736,7 +4733,6 @@ paths:
                   required: 
                     - port
                     - slot
-                    - imei
                   properties:
                     port:
                       type: number
@@ -4803,7 +4799,7 @@ paths:
                       minimum: 1
                       maximum: max-port
                       description: Slot number
-                    imei: 
+                    pin: 
                       type: string
                       description: SIM PIN   
               examples:
@@ -5018,7 +5014,7 @@ paths:
         Immediately query detailed status information of the current port.
         
         
-        If the request contains the `ports` field, use the `ports` field; if `slots` is absent but `ports_pattern` is present, use `ports_pattern`; if neither is provided, return an error.
+        If the request contains the `ports` field, use the `ports` field; if `ports` is absent but `ports_pattern` is present, use `ports_pattern`; if neither is provided, return an error.
       tags: 
         - Device Action Commands
       parameters:
