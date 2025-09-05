@@ -2332,9 +2332,10 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - id
               properties:
                 id:
-                  default: 1
                   type: number
                   description: ID of the SMS to start the query from; **1 indicates the first message in the inbox**
                 num: 
