@@ -684,6 +684,7 @@ paths:
               port: 1
               index: 0
               num: 10
+              need_content: true
       responses:
         '200':
           description: 'OK'
