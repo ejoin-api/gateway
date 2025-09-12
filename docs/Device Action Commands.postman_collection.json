@@ -606,6 +606,69 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GetBoundOperator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/get_bound_opers?username=root&password=root",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"get_bound_opers"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "root"
+						},
+						{
+							"key": "password",
+							"value": "root"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetBoundOperator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"port\": 1,\r\n        \"oper_id\": 0\r\n    },\r\n    {\r\n        \"port\": 2,\r\n        \"oper_id\": 46000\r\n    },\r\n    {\r\n        \"port\": 9,\r\n        \"oper_id\": 460000\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/set_bound_opers?username=root&password=root",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"set_bound_opers"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "root"
+						},
+						{
+							"key": "password",
+							"value": "root"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [

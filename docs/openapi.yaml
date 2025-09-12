@@ -38,7 +38,7 @@ info:
      https://www.postman.com/downloads/
 
 
-  version: 3.1.0
+  version: 3.2.0
   x-logo:
     url: ./EAPI-logo.png
     backgroundColor: '#FAFAFA'
@@ -4814,6 +4814,117 @@ paths:
                     - port: 1
                       slot: 2
                       pin: ""
+                    - ...: ...
+          headers: {}
+      security: []
+  http://host:port/set_bound_opers:
+    post:
+      summary: Set Bound Operator
+      deprecated: false
+      description: >-
+         Set the port to forcibly lock onto a specified carrier.
+         
+         
+         Note: When the `oper_id` is set to `0`, the binding will be released. <span style="text-decoration: underline;font-weight: bold;font-style: italic">This interface requires version 8.1l or later.</span>
+      tags: 
+        - Device Action Commands
+      parameters:
+        - name: username
+          in: query
+          description: Device Username
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Device Password
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+              example:
+                - port: 1
+                  oper_id: 46000
+                - port: 2
+                  oper_id: 0
+              schema:
+                type: array
+                description:
+                items:
+                  type: object
+                  required: 
+                    - port
+                    - oper_id
+                  properties:
+                    port:
+                      type: number
+                      minimum: 1
+                      maximum: max-port
+                      description: Port number
+                    oper_id: 
+                      type: number
+                      description: Operator ID     
+      responses:
+        '200':
+          description: 'OK'
+          headers: {}
+      security: []
+  http://host:port/get_bound_opers:
+    get:
+      summary: Get Bound Operator
+      deprecated: false
+      description: >-
+         Query the carrier ID currently bound to the port.
+         
+         
+         Note: If the queried `oper_id` value is `0`, it indicates that no carrier is bound. <span style="text-decoration: underline;font-weight: bold;font-style: italic">This interface requires version 8.1l or later.</span>
+      tags: 
+        - Device Action Commands
+      parameters:
+        - name: username
+          in: query
+          description: Device Username
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Device Password
+          required: true
+          schema:
+            type: string               
+      responses:
+        '200':
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                type: array
+                description:
+                items:
+                  type: object
+                  required: 
+                    - port
+                    - oper_id
+                  properties:
+                    port:
+                      type: number
+                      minimum: 1
+                      maximum: max-port
+                      description: Port number
+                    oper_id: 
+                      type: number
+                      description: Operator ID  
+              examples:
+                '1':
+                  summary: Successful instance
+                  value:
+                    - port: 1
+                      oper_id: 46000
+                    - port: 2
+                      oper_id: 0
                     - ...: ...
           headers: {}
       security: []
