@@ -4819,7 +4819,7 @@ paths:
       security: []
   http://host:port/set_bound_opers:
     post:
-      summary: Set Bound Operator
+      summary: Set Modem Carrier Binding
       deprecated: false
       description: >-
          Set the port to forcibly lock onto a specified carrier.
@@ -4873,7 +4873,7 @@ paths:
       security: []
   http://host:port/get_bound_opers:
     get:
-      summary: Get Bound Operator
+      summary: Get Bound Operator Settings
       deprecated: false
       description: >-
          Query the carrier ID currently bound to the port.
