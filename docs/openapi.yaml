@@ -38,7 +38,7 @@ info:
      https://www.postman.com/downloads/
 
 
-  version: 3.2.0
+  version: 3.3.0
   x-logo:
     url: ./EAPI-logo.png
     backgroundColor: '#FAFAFA'
@@ -2733,6 +2733,73 @@ paths:
                     }
                 }
             }
+          headers: {}
+      security: []
+  Push the MMS reception status report proactively to the configured server address:
+    post:
+      summary: MMS Reception Report
+      deprecated: false
+      description: >-
+      
+          After enabling the `State Notification` on the device's `MMS Inbox' page, the MMS reception status information will be reported to the URL configured on the current page.
+          
+          
+          Note: The HTTP Content-Type for the 'Forwarded MMS Content' will not be in JSON format, whereas the 'MMS Reception Report' will have the Content-Type set to application/json.
+      tags:
+        - Message Operations
+      requestBody:
+        content: 
+          application/json:
+            example: 
+              ts: 1763458139
+              tid: xxxxxx
+              mac: 00-00-00-00-00-00
+              port: 1
+              slot: 1
+              iccid: xxxxxxxx
+              state: xxx
+              reason: xxx
+            schema: 
+              type: object
+              required:
+                - ts
+                - mac
+                - port
+                - slot
+                - iccid
+                - state
+              properties:
+                ts:
+                  type: int
+                  description: Timestamp
+                tid:
+                  type: string
+                  description: Transaction ID, returned by the operator
+
+                mac:
+                  type: string
+                  description: Device MAC Address
+                port:
+                  type: int
+                  description: MMS Associated Device Port
+                slot:
+                  type: int
+                  description: MMS Associated Port Slot
+                iccid:
+                  type: string
+                  description: ICCID
+                state:
+                  type: string
+                  description: >-
+                    Current MMS Status, with the following values:
+                      - 1. `notification_ind`: Operator notification, MMS is being delivered
+                      - 2. `pendding`: Waiting to receive MMS
+                      - 3. `receiving`: MMS is being received
+                      - 4. `failed`: MMS reception failed
+                      - 5. `success`: MMS received successfully
+                reason:
+                  type: string
+                  description: MMS Reception Failure Description, only present when the `state` field is `failed`
           headers: {}
       security: []
   http://host:port/send_ats:
