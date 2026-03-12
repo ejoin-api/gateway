@@ -41,7 +41,7 @@
       button.sc-eEVmNe svg.sc-dIsUp {
         display: none;
       }
-      li.huvfwk {
+      li.eoKbCJ {
           pointer-events: auto; /* 确保元素可点击 */
       }
       #popup {
@@ -98,7 +98,7 @@
       let isobserver = false;
       Redoc.init('openapi.yaml', {}, document.getElementById('redoc-container'));
       document.addEventListener('DOMContentLoaded', function () {
-          var clk_url = $('li.huvfwk');
+          var clk_url = $('li.eoKbCJ');
           if(clk_url && clk_url.length >0){
                addEventListenerInit();
           }else if(!isobserver){
@@ -108,7 +108,7 @@
                 const observer = new MutationObserver(function (mutationsList) {
                         for (const mutation of mutationsList) {
                             if (!isobserver && mutation.type === 'childList') {
-                                clk_url = $('li.huvfwk');
+                                clk_url = $('li.eoKbCJ');
                                  if(clk_url && clk_url.length >0){
                                     isobserver = true;
                                     console.log('Element found after DOM change:', clk_url.length);
@@ -128,8 +128,8 @@
       });
 
       function addEventListenerInit(){
-            $('li.huvfwk').click(function () {
-                 const navName = $(this).find('span.klzczi').html().trim(); 
+            $('li.eoKbCJ').click(function () {
+                 const navName = $(this).find('span.cyMuFj').html().trim(); 
                  const anchorPath = this.dataset.itemId;
                  gtag('event', 'nav_link_click', { nav_name: navName, anchor_path: anchorPath });
             });
@@ -195,10 +195,10 @@
       /**
       document.addEventListener('DOMContentLoaded', function () {
           document.addEventListener('click', function (e) {
-              if (e.target.closest('li.huvfwk')) {
-                  const navItem = e.target.closest('li.huvfwk');
+              if (e.target.closest('li.eoKbCJ')) {
+                  const navItem = e.target.closest('li.eoKbCJ');
                   if (navItem) {
-                      const navName = navItem.querySelector('span.klzczi').textContent.trim(); 
+                      const navName = navItem.querySelector('span.cyMuFj').textContent.trim(); 
                       const anchorPath = navItem.querySelector('a[href]')?.href.split('#')[1] || '';
                       gtag('event', 'nav_link_click', { nav_name: navName, anchor_path: anchorPath });
                   }
