@@ -35,7 +35,7 @@ info:
 
      # EDev LAN Scanner Download URL
      
-     <span style="text-decoration: underline;font-weight: bold;font-style: italic"><a download target="_blank" href="https://github.com/ejoin-api/Edev-monitor/releases/download/v1.1.1/EDevMonitor.v1.1.1.exe">💡Here is the monitoring tool to get our device IP</a> </span>
+     <span style="text-decoration: underline;font-weight: bold;font-style: italic"><a id="download-edev-monitor" download target="_blank" href="https://github.com/ejoin-api/Edev-monitor/releases/download/v1.1.1/EDevMonitor.v1.1.1.exe">💡Here is the monitoring tool to get our device IP</a> </span>
      
      # Postman Download URL
      
@@ -5444,4 +5444,5 @@ paths:
         '200':
           description: 'OK'
           headers: {}
+
       security: []
