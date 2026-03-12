@@ -133,6 +133,14 @@
                  const anchorPath = this.dataset.itemId;
                  gtag('event', 'nav_link_click', { nav_name: navName, anchor_path: anchorPath });
             });
+		    $('#download-edev-monitor').click(function () {
+				 gtag('event', 'download_click', {
+			        event_category: 'File Download',
+			        event_action: 'Click',
+			        event_label: 'EDevMonitor.v1.1.1.exe',
+			        transport_type: 'beacon'
+			      });
+			});
             $('button.sc-eEVmNe.gXhEov').append('<div class="sc-carFqZ hBWCUB ejoin_copy_url">Copy</div>');
             $("div.ejoin_copy_url").click(function () {
                  var url_obj = $(this).siblings("span.sc-jXcxbT.hVdkvA");
