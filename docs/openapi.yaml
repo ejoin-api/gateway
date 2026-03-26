@@ -39,6 +39,7 @@ info:
 
      <span style="text-decoration: underline;font-weight: bold;font-style: italic;color: red">Run as administrator</span>
      
+     
      # Postman Download URL
      
      https://www.postman.com/downloads/
@@ -1332,34 +1333,39 @@ paths:
         content:
           application/json:
             example:
-              port: 1
-              slot: 1
-              ac: ""
-              cc: ""
+              - port: 1
+                slot: 1
+                ac: ""
+                cc: ""
+              - port: 2
+                slot: 1
+                ac: ""
+                cc: ""
             schema:
-              type: object
-              properties:
-                port:
-                  type: integer
-                  minimum: 1
-                  maximum: max-port
-                  description: Port number
-                slot:
-                  type: integer
-                  minimum: 1
-                  maximum: 8
-                  description: Slot number
-                ac:
-                  type: string
-                  description: Activation code
-                cc:
-                  type: string
-                  description: Confirmation code
-              required:
-                - port
-                - slot
-                - ac
-                - cc
+              type: array
+              items:
+                properties:
+                  port:
+                    type: integer
+                    minimum: 1
+                    maximum: max-port
+                    description: Port number
+                  slot:
+                    type: integer
+                    minimum: 1
+                    maximum: 8
+                    description: Slot number
+                  ac:
+                    type: string
+                    description: Activation code
+                  cc:
+                    type: string
+                    description: Confirmation code
+                required:
+                  - port
+                  - slot
+                  - ac
+                  - cc
       responses:
         '200':
           description: 'OK'
@@ -5446,5 +5452,4 @@ paths:
         '200':
           description: 'OK'
           headers: {}
-
       security: []
