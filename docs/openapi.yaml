@@ -1712,6 +1712,7 @@ paths:
                         - opr
                         - bal
                         - sig
+                        - network
                       properties:
                         port:
                           type: string
@@ -1804,6 +1805,13 @@ paths:
                           description: Signal value of the module
                           minimum: 0
                           maximum: 31
+                        network:
+                          type: interger
+                          description: >-
+                            Network type
+                             - 2: 2G
+                             - 3: 3G
+                             - 4: 4G
                     description: Status of device port
                 required:
                   - type
@@ -1839,6 +1847,7 @@ paths:
                         opr: 46000 CHINA MOBILE
                         bal: 0.00
                         sig: 5
+                        network: 4
                       - ......
           headers: {}
       security: []
@@ -5148,7 +5157,14 @@ paths:
                         sig:
                           type: int
                           description: Signal value of the module
-                        
+                        network:
+                          type: int
+                          description: >-  
+                            Network type
+                             - 2: 2G
+                             - 3: 3G
+                             - 4: 4G
+                          
                       required:
                         - port
                         - sim
@@ -5159,6 +5175,7 @@ paths:
                         - inserted
                         - slot_active
                         - led
+                        - network
                     description: Status of device port
                 required:
                   - type
@@ -5196,6 +5213,7 @@ paths:
                         opr: 46000 CHINA MOBILE
                         bal: 0.00
                         sig: 5
+                        network: 4
           headers: {}
       security: []
   http://host:port/get_ports_status:
@@ -5350,6 +5368,13 @@ paths:
                     description: Signal value of the module
                     minimum: 0
                     maximum: 31
+                  network:
+                    type: integer
+                    description: >-
+                      Network type
+                        - 2: 2G
+                        - 3: 3G
+                        - 4: 4G
                   led:
                     type: integer
                     description: >-
@@ -5364,6 +5389,7 @@ paths:
                   - port
                   - bal
                   - st
+                  - network
               examples:
                 '1':
                   summary: port-status
@@ -5384,6 +5410,7 @@ paths:
                       slot_active: 1
                       sig: 29
                       led: 1
+                      network: 4
                     - port: 2.01
                       sim: ""
                       seq: 2
@@ -5399,6 +5426,7 @@ paths:
                       opr: 46000 CHINA MOBILE
                       bal: 0.00
                       sig: 21
+                      network: 4
           headers: {}
       security: []
   http://host:port/save_config:
